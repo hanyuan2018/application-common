@@ -1,4 +1,14 @@
 package com.aries.common.generator.web.mapper;
 
-public interface OracleGeneratorMapper {
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * 
+ * oracle代码生成对应的mapper
+ * 
+ * @author hanp
+ *
+ */
+@Mapper
+public interface OracleGeneratorMapper extends GeneratorMapper{
 }
