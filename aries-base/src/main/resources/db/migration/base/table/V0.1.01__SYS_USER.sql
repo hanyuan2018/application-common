@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : common_test
+ Source Server         : ariesbase_dev
  Source Server Type    : MySQL
  Source Server Version : 50724
  Source Host           : 47.99.201.84:3306
- Source Schema         : common_dev
+ Source Schema         : ariesbase_dev
 
  Target Server Type    : MySQL
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 20/01/2019 12:46:24
+ Date: 13/05/2019 23:07:54
 */
 
 SET NAMES utf8mb4;

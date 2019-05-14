@@ -13,6 +13,8 @@ public class AttrConstants {
     public static final String SUCCESS = "success";
     //失败
     public static final String FAILED = "failed";
+    // 参数为空
+    public static final String EMPTY = "empty";
     //删除标志, 0为未删除，1为删除
     public static String DELETE_FLAG_UNDELETED = "0";
     public static String DELETE_FLAG_DELETED = "1";

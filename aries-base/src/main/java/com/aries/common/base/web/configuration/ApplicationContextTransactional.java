@@ -30,9 +30,9 @@ public class ApplicationContextTransactional {
     // 事务方法超时时间设置
     private static final int TX_METHOD_TIMEOUT = 5;
     // AOP切面的切点表达式, 在controller层提交事务
-    private static final String AOP_POINTCUT_EXPRESSION = "execution(* com.application.common.yuan.web.controller..*.*(..))";
+    //private static final String AOP_POINTCUT_EXPRESSION = "execution(* com.aries.common.base.web.controller..*.*(..))";
     // AOP切面的切点表达式, 在service层提交事务
-    //private static final String AOP_POINTCUT_EXPRESSION = "execution(* com.application.common.yuan.web.service*..*.*(..))";
+    private static final String AOP_POINTCUT_EXPRESSION = "execution(* com.aries.common.base.web.service*..*.*(..))";
     // 注入事务管理器
     @Autowired
     private PlatformTransactionManager transactionManager;

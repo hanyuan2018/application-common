@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aries.common.base.web.mapper.SysUserMapper">
+
+    <sql id="sysUserColumn">
+        USER_ID AS userId,
+        `NAME` AS name,
+        USER_NAME AS userName,
+        PASSWORD AS password,
+        SFZH AS sfzh,
+        SEX AS sex,
+        PHONE AS phone,
+        EMAIL AS email,
+        AVATAR AS avatar,
+        COMMENT AS comment,
+        LOCK_FLAG AS lockFlag,
+        DELETE_FLAG AS deleteFlag,
+        CREATE_USER AS createTime,
+        CREATE_TIME AS createTime,
+        UPDATE_USER AS updateUser,
+        UPDATE_TIME AS updateTime
+    </sql>
+
+    <!-- 根据参数获取用户信息 -->
+    <select id="getUserInfo" resultType="com.aries.common.base.web.entity.SysUserEntity">
+        SELECT
+            <include refid="sysUserColumn"></include>
+        FROM
+            SYS_USER
+        WHERE
+            1 = 1
+            AND DELETE_FLAG = '0'
+            AND LOCK_FLAG = '0'
+            <if test="userId != null and userId != ''">
+                AND USER_ID = '${userId}'
+            </if>
+            <if test="name != null and name != ''">
+                AND `NAME` = '${name}'
+            </if>
+            <if test="userName != null and userName != ''">
+                AND USER_NAME = '${userName}'
+            </if>
+            <if test="password != null and password != ''">
+                AND `PASSWORD` = '${password}'
+            </if>
+            <if test="sfzh != null and sfzh != ''">
+                AND SFZH = '${sfzh}'
+            </if>
+    </select>
+
+</mapper>
