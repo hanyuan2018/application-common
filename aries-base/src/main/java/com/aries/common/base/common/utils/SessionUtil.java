@@ -28,7 +28,7 @@ public class SessionUtil {
     public static final String SESSION_USER_ACCESS_TOKEN_KEY = "accessToken";
 
     // 获取一个session对象
-    private static HttpSession session = getSession();
+    //private static HttpSession session = getSession();
 
     /**
      * 获取一个request对象的方法

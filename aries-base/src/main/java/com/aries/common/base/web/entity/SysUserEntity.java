@@ -44,5 +44,7 @@ public class SysUserEntity {
     private Integer updateUser;
     // 更新时间
     private Timestamp updateTime;
+    
+    
 
 }

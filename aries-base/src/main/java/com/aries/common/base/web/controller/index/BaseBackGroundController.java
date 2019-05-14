@@ -1,23 +1,21 @@
 package com.aries.common.base.web.controller.index;
 
-import com.aries.common.base.common.constants.AttrConstants;
-import com.aries.common.base.common.constants.ForwardConstants;
-import com.aries.common.base.common.utils.SessionUtil;
-import com.aries.common.base.web.entity.SysUserEntity;
-import com.aries.common.base.web.mapper.SysUserMapper;
-import org.apache.catalina.manager.util.SessionUtils;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
+import com.aries.common.base.common.constants.AttrConstants;
+import com.aries.common.base.common.constants.ForwardConstants;
+import com.aries.common.base.common.utils.SessionUtil;
+import com.aries.common.base.web.entity.SysUserEntity;
+import com.aries.common.base.web.mapper.SysUserMapper;
 
 @Controller
 @RequestMapping("/")
@@ -55,7 +53,7 @@ public class BaseBackGroundController extends  BaseController{
     @RequestMapping(value = "login", method = RequestMethod.POST, produces = "text/html; charset=utf-8")
     public String login(HttpServletRequest request, String userName, String password){
         // 判断用户名与参数是否为空
-        if(StringUtils.isNotEmpty(userName) || StringUtils.isNotEmpty(password)){
+        if(StringUtils.isEmpty(userName) || StringUtils.isEmpty(password)){
             return ForwardConstants.LOGIN;
         }
         SysUserEntity sysUserEntity = new SysUserEntity();
