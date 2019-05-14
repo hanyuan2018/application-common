@@ -1,13 +1,13 @@
 package com.aries.common.base.web.configuration;
 
+import com.aries.common.base.common.utils.CommonUtil;
+import com.aries.common.base.web.interceptor.LoginInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.*;
 
 import java.nio.charset.Charset;
 import java.util.List;
@@ -21,6 +21,9 @@ import java.util.List;
  */
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
+
+    @Autowired
+    private LoginInterceptor loginInterceptor;
 
     @Bean
     public HttpMessageConverter<String> responseBodyConverter() {
@@ -50,8 +53,17 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     /**
      * 	加载拦截器配置信息
      */
-    protected void addInterceptors(InterceptorRegistry registry) {
-        super.addInterceptors(registry);
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        // 注册拦截器
+        InterceptorRegistration loginRegistration = registry.addInterceptor(loginInterceptor);
+        // 拦截路径
+        loginRegistration.addPathPatterns("/**");
+        // 排除路径
+        loginRegistration.excludePathPatterns(CommonUtil.excludeUrlPath());
+        // 排除资源请求
+        loginRegistration.excludePathPatterns(CommonUtil.excludeResourcePath());
+        System.out.println("Springboot 登录拦截配置： ----> " + CommonUtil.excludeUrlPath() + "<----->" + CommonUtil.excludeResourcePath() );
     }
 
     /**
