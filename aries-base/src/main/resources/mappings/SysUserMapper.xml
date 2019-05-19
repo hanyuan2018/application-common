@@ -23,9 +23,9 @@
     </sql>
 
     <!-- 根据参数获取用户信息 -->
-    <select id="getUserInfo" resultType="com.aries.common.base.web.entity.SysUserEntity">
+    <select id="getUserInfo" resultType="com.aries.common.base.web.entity.SysUserFormMap">
         SELECT
-            <include refid="sysUserColumn"></include>
+            *
         FROM
             SYS_USER
         WHERE
@@ -48,5 +48,18 @@
                 AND SFZH = '${sfzh}'
             </if>
     </select>
+    
+    <select id="getUserList" resultType="com.aries.common.base.web.entity.SysUserEntity">
+        SELECT
+            *
+        FROM
+            SYS_USER
+        WHERE
+            1 = 1
+            AND DELETE_FLAG = '0'
+            AND LOCK_FLAG = '0'
+    </select>
+    
+    
 
 </mapper>

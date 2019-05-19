@@ -15,6 +15,15 @@ import java.util.Set;
 public class FormMap<K, V> extends HashMap<K, V> implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    // 表名字段
+    public static String tableName ;
+    
+    public static void setTableName(String tableName) {
+    	FormMap.tableName = tableName;
+    }
+    public String getTableName() {
+        return tableName;
+    }
 
     public void set(K key, V value) {
         this.put(key, value);

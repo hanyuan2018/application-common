@@ -38,6 +38,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     /**
      * 	加载默认转换器
      */
+    @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(responseBodyConverter());
         // 这里必须加上加载默认转换器，不然bug玩死人，并且该bug目前在网络上似乎没有解决方案
@@ -69,6 +70,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     /**
      * 	加在静态资源的配置信息
      */
+    @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**")
                 .addResourceLocations("classpath:/META-INF/resources/")

@@ -11,6 +11,7 @@ public class CommonUtil {
         urlPathList.add("/");
         urlPathList.add("/login");
         urlPathList.add("/logout");
+        urlPathList.add("/api");
         return urlPathList;
     }
 
